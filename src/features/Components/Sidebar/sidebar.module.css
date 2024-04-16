@@ -1,0 +1,23 @@
+@import url("../../../index.css");
+
+.containerSidebar{
+    background-color: var(--sidebar-bg-color);
+    width: 20%;
+    height: 100vh;
+}
+
+li{
+    width: 90%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 50px;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    &:hover{
+        background-color: var(--li-hover-color);
+        transition: 0.8s ease;
+    }
+}
