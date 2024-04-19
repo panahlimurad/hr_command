@@ -1,22 +1,56 @@
-import React from 'react'
-import styles from './header.module.css'
-import LightModeIcon from '@mui/icons-material/LightMode';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import SettingsIcon from '@mui/icons-material/Settings';
-
+import React from "react";
+import styles from "./header.module.css";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import SettingsIcon from "@mui/icons-material/Settings";
+import RealTime from "../RealTime/RealTime";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import ArrowDropDownTwoToneIcon from '@mui/icons-material/ArrowDropDownTwoTone';
 
 function Header() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div className={styles.container}>
-        <div className={styles.headerMain}>
-          <div className='bg-yellow-300 w-56'>
-            <LightModeIcon />
-            <NotificationsIcon />
-            <SettingsIcon /> 
-          </div>
+      <div className={styles.headerMain}>
+        <div className="w-[100%] lg:w-[50%] flex gap-2 justify-center items-center">
+          <LightModeIcon sx={{cursor:"pointer"}}/>
+          <NotificationsIcon sx={{cursor:"pointer"}}/>
+          <SettingsIcon sx={{cursor:"pointer"}}/>
+          <Button
+          sx={{color:"#17243e"}}
+            id="basic-button"
+            aria-controls={open ? "basic-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? "true" : undefined}
+            onClick={handleClick}>
+          ENG <ArrowDropDownTwoToneIcon />
+          </Button>
+          <Menu
+            id="basic-menu"
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            MenuListProps={{
+              "aria-labelledby": "basic-button",
+            }}>
+            <MenuItem onClick={handleClose}>ENG</MenuItem>
+            <MenuItem onClick={handleClose}>AZE</MenuItem>
+          </Menu>
+          <RealTime />
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

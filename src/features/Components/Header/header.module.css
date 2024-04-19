@@ -1,8 +1,7 @@
 @import url("../../../index.css");
 
 .container{
-    background-color: red;
-    width: 80%;
+    width: 100%;
     height: 80px;
     display: flex;
     justify-content: center;

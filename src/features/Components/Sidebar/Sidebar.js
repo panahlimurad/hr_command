@@ -4,15 +4,15 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import PeopleIcon from '@mui/icons-material/People';
 import EventIcon from '@mui/icons-material/Event';
-
+import profileDefault from '../../images/icons/profileDefault.svg'
 
 function Sidebar() {
   return (
   <div className={styles.containerSidebar}>
     <div className={styles.sidebarMain}>
-      <div className="flex flex-col gap-4 justify-center items-center mt-10 text-white">
+      <div className="flex flex-col gap-4 justify-center items-center text-white">
         <h3>Logo</h3>
-        <img className="w-12 h-12 rounded-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOWZM4LaEBG5h5ux83IEllVR4Y1vRwsWtLdA&usqp=CAU" alt="logo"></img>
+        <img className="w-12 h-12 rounded-full object-cover" src={profileDefault} alt="logo"></img>
       <h3>HR NAME</h3>
       <h4>hr.@gmail.com</h4>
       </div>
