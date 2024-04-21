@@ -10,6 +10,7 @@ import EmployeesDetails from "../../pages/EmployeesDetails/employees-details";
 import Login from "../../pages/Login/login";
 import Register from "../../pages/Register/register";
 import Vacancies from "../../pages/Vacancies/vacancies";
+import Departaments from "../../pages/Departaments/departaments";
 
 function Layout() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function Layout() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/vacancies" element={<Vacancies />} />
+            <Route path="/departaments" element={<Departaments />} />
           </Routes>
         </div>
       </div>

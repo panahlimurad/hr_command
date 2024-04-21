@@ -5,6 +5,9 @@ import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import PeopleIcon from '@mui/icons-material/People';
 import EventIcon from '@mui/icons-material/Event';
 import profileDefault from '../../images/icons/profileDefault.svg'
+import InfoIcon from '@mui/icons-material/Info';
+import { Link } from "react-router-dom";
+import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 
 function Sidebar() {
   return (
@@ -17,11 +20,25 @@ function Sidebar() {
       <h4>hr.@gmail.com</h4>
       </div>
       <div>
-        <ul className="w-full flex flex-col gap-5 items-center mt-12">
+        <ul className="w-full flex flex-col gap-5 items-center mt-8">
+          <Link className="w-full" to='/'>
           <li> <DashboardIcon sx={{ fontSize: 20 }}/>Dashboard</li>
+          </Link>
+          <Link className="w-full" to="departaments">
+          <li> <AutoAwesomeMotionIcon sx={{ fontSize: 20 }}/>Departaments</li>
+          </Link>
+          <Link className="w-full" to="vacancies">
           <li> <BusinessCenterIcon sx={{ fontSize: 20 }}/>Vacancies</li>
+          </Link>
+          <Link className="w-full" to="employees">
           <li> <PeopleIcon sx={{ fontSize: 20 }}/>Employees</li>
+          </Link>
+          <Link className="w-full" to="activity">
           <li> <EventIcon sx={{ fontSize: 20 }}/>Activity</li>
+          </Link>
+          <Link className="w-full" to="about_us">
+          <li> <InfoIcon sx={{ fontSize: 20 }}/>About Us</li>
+          </Link>
         </ul>
       </div>
 

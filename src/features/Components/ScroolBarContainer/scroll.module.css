@@ -1,0 +1,21 @@
+
+.container{
+    width: 100%;
+    max-height: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+    overflow-x: auto;
+}
+
+.container::-webkit-scrollbar {
+    width: 8px; 
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #2c53c0; 
+    border-radius: 5px;
+
+}
