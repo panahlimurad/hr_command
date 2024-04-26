@@ -45,7 +45,7 @@ function LongCards() {
             <p>delete</p>
           </div>
           <div className="p-1 rounded-lg cursor-pointer hover:bg-[#c7cbd1] hover:text-[#fff]">
-            <p>edit123</p>
+            <p>edit1234567</p>
           </div>
         </div>
         }
