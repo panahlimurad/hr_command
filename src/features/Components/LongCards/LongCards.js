@@ -3,10 +3,21 @@ import styles from "./longCards.module.css";
 import Logo from "../../images/icons/profileDefault.svg";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 
 function LongCards() {
 
   const [openSmall, setOpenSmall] = useState(true)
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   
   const openSmallModal = () => {
@@ -34,22 +45,29 @@ function LongCards() {
         <p className="text-[12px] text-[#343942] font-normal">Employess </p>
         <p className="text-[14px] text-[#23272C] font-medium">23</p>
       </div>
-      <div
-        onClick={openSmallModal}
-        className="absolute top-2 right-4 text-[#969da6]"
+      <div className="absolute top-0 right-0">
+      <Button
+        id="basic-button"
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
       >
-        <MoreHorizIcon sx={{ cursor: "pointer" }} />
-        {!openSmall && 
-        <div className="bg-white flex p-2 flex-col items-center rounded-lg w-[80px] absolute top-5 right-1">
-          <div className="p-1 rounded-lg cursor-pointer hover:bg-[#c7cbd1] hover:text-[#fff]">
-            <p>delete</p>
-          </div>
-          <div className="p-1 rounded-lg cursor-pointer hover:bg-[#c7cbd1] hover:text-[#fff]">
-            <p>edit1</p>
-          </div>
-        </div>
-        }
-      </div>
+        <MoreHorizIcon/>
+      </Button>
+      <Menu 
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Edit</MenuItem>
+        <MenuItem onClick={handleClose}>Delete</MenuItem>
+      </Menu>
+    </div>
     </div>
   );
 }
