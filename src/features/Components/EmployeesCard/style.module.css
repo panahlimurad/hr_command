@@ -1,0 +1,10 @@
+.container{
+    width: 30%;
+    height: 400px;
+    border-radius: 20px;
+    border: 1px solid #E0E4EA;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 0px 15px 20px;
+}

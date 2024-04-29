@@ -6,7 +6,7 @@ import ScrollableContainer from '../ScroolBarContainer/ScroolBarContainer'
 function LongCardsContainer() {
   return (
     <div>
-        <ScrollableContainer maxHeight="200px">
+        <ScrollableContainer>
         <LongCards/>
         <LongCards/>
         <LongCards/>

@@ -6,9 +6,9 @@ function Departaments() {
   return (
     <div className="h-full">
       <div>
-        <PageHeader text="Departaments" />
+        <PageHeader/>
       </div>
-      <div className="h-[440px] flex ">
+      <div className="h-[440px] flex mt-4">
         <LongCardsContainer/>
       </div>
     </div>
