@@ -1,0 +1,15 @@
+@import url("../../../index.css");
+
+.container{
+    display: flex;
+    height: 50px;
+    padding-left: 16px;
+}
+
+.text{
+    width: 50%;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-left: 20px;
+}

@@ -1,7 +1,14 @@
 import React from "react";
+import EmpPageHeader from "../../features/Components/EmpPageHeader/EmpPageHeader";
 
 function EmployeesDetails() {
-  return <div>employees-details</div>;
+  return(
+
+    <div>
+      <EmpPageHeader text="Oliwia Williams"/>
+    </div>
+  ) 
+  
 }
 
 export default EmployeesDetails;
