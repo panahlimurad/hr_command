@@ -6,12 +6,12 @@ function EmployeesCardContainer() {
   return (
     <div>
         <ScrollableContainer>
-        <EmployessCard/>
-        <EmployessCard/>
-        <EmployessCard/>
-        <EmployessCard/>
-        <EmployessCard/>
-        <EmployessCard/>
+        <EmployessCard />
+        <EmployessCard />
+        <EmployessCard />
+        <EmployessCard />
+        <EmployessCard />
+        <EmployessCard />
         </ScrollableContainer>
     </div>
   )
