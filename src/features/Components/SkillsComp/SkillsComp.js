@@ -2,7 +2,7 @@ import React from 'react'
 
 function SkillsComp() {
   return (
-    <div className='w-[100%%] border border-solid rounded-2xl p-4 border-[#E0E4EA] h-auto'>
+    <div className='w-[100%%] border border-solid rounded-2xl p-4 border-[#E0E4EA] h-[300px] overflow-scroll'>
         <div className='font-semibold text-[16px]'>
         Skills
         </div>
