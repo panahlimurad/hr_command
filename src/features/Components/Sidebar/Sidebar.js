@@ -20,7 +20,7 @@ function Sidebar() {
       <h4>hr.@gmail.com</h4>
       </div>
       <div>
-        <ul className="w-full flex flex-col gap-5 items-center mt-8">
+        <ul className={`${styles.customUl} w-full flex flex-col gap-5 items-center mt-8`}>
           <Link className="w-full" to='/'>
           <li> <DashboardIcon sx={{ fontSize: 20 }}/>Dashboard</li>
           </Link>

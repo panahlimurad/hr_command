@@ -8,6 +8,7 @@ import Logo from "../../images/icons/profileDefault.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
+import StatusPanelSmall from "../StatusPanelSmall/StatusPanelSmall";
 
 function EmployessCard({ isDetail }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,9 +24,7 @@ function EmployessCard({ isDetail }) {
     <div className={!isDetail ? styles.container : styles.containerDetails}>
       {!isDetail && (
         <div className="w-full items-center gap-2 mt-2 flex justify-end">
-          <div className="w-[20%] h-[24px] text-[#0EB01D]  bg-[#DDFCE0] rounded-2xl text-[11px] font-normal items-center flex justify-center">
-            ACTIVE
-          </div>
+          <StatusPanelSmall text="ACTIVE"/>
           <div>
             <Button
               id="basic-button"

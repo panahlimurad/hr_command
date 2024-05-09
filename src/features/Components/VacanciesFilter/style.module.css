@@ -1,0 +1,27 @@
+
+
+.clear{
+    border-bottom-width: 2px;
+    font-size: 12px;
+    height: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover{
+        border-bottom-width: 0px;
+    }
+}
+
+.list{
+    border: 1px solid #f1f1f1;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 300;
+    height: 32px;
+    padding: 4px 12px 4px 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    &:hover{
+        background-color: #1e74ec;
+        color: #fff;
+    }
+}

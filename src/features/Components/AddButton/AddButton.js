@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./addButton.module.css";
 import { useLocation } from "react-router-dom";
+import AddIcon from '@mui/icons-material/Add';
 
 function AddButton() {
   const location = useLocation();
@@ -12,7 +13,7 @@ function AddButton() {
 
   return (
     <>
-      <button className={styles.container}>Add {finalText}</button>
+      <button className={styles.container}><AddIcon sx={{fontSize:"15px"}}/>Add {finalText}</button>
     </>
   );
 }

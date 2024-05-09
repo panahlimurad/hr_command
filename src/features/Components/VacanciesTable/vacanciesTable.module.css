@@ -1,0 +1,16 @@
+
+.customUl{
+    display: flex;
+    width: 100%;
+    background-color: #f4f5f7;
+    border-radius: 12px;
+    height: 56px;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 20px;
+}
+
+.customUl li{
+    flex: 1;
+}
+
