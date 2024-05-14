@@ -9,14 +9,12 @@ import AddButton from "../AddButton/AddButton";
 import { useLocation } from "react-router-dom";
 
 function PageHeader() {
-
+ 
   const location = useLocation()
   const pathname = location.pathname
   const formattedText = pathname.charAt(1).toUpperCase() + pathname.slice(2);
 
   const finalText = formattedText.replace("/", "");
-
-  console.log(location.pathname)
   
   const [age, setAge] = React.useState("");
 
@@ -45,7 +43,7 @@ function PageHeader() {
             </Select>
           </FormControl>
         </Box>
-        <AddButton text="Add Departament"/>
+        <AddButton  text="Add Departament"/>
       </div>
     </div>
   );

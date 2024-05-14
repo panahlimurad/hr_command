@@ -1,0 +1,45 @@
+.container{
+    background-color: rgba(140, 166, 237, 0.5); 
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    z-index: 9;
+    transition: 1s ease;
+}
+
+.hiddenContainer{
+    width: 0%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    transition: 500ms ease;
+}
+
+.innerContainer{
+    width: 80%;
+    background-color: #fff;
+    position: relative;
+    transition: 250ms;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.arrowIcon{
+    position: absolute;
+    border-radius: 50%;
+    width: 40px;
+    top: 45%;
+    left: -20px;
+    cursor: pointer;
+}
+
+.arrowiconHidden{
+    display: none;
+    transition: 300ms ease;
+}

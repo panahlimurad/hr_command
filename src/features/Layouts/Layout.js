@@ -3,7 +3,7 @@ import Header from "../Components/Header/Header";
 import Sidebar from "../Components/Sidebar/Sidebar";
 import Dashboard from "../../pages/Dashboard/dashboard";
 import { Route, Routes, useLocation } from "react-router-dom";
-import About_us from "../../pages/AboutUs/about_us";
+import AboutUs from "../../pages/AboutUs/about_us";
 import Activity from "../../pages/Activity/activity";
 import Employees from "../../pages/Employees/employees";
 import EmployeesDetails from "../../pages/EmployeesDetails/employees-details";
@@ -11,6 +11,7 @@ import Login from "../../pages/Login/login";
 import Register from "../../pages/Register/register";
 import Vacancies from "../../pages/Vacancies/vacancies";
 import Departaments from "../../pages/Departaments/departaments";
+import AddModal from "../Components/AddModal/AddModal";
 
 function Layout() {
   const location = useLocation();
@@ -30,7 +31,7 @@ function Layout() {
           {pathname !== "/login" && pathname !== "/register" && <Header />}
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/about_us" element={<About_us />} />
+            <Route path="/about_us" element={<AboutUs />} />
             <Route path="/activity" element={<Activity />} />
             <Route path="/employees" element={<Employees />} />
             <Route path="/employees-details" element={<EmployeesDetails />} />
@@ -40,6 +41,7 @@ function Layout() {
             <Route path="/departaments" element={<Departaments />} />
           </Routes>
         </div>
+        <AddModal/>
       </div>
     </div>
   );

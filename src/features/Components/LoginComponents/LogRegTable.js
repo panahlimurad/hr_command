@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./login.module.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Checkbox from "@mui/material/Checkbox";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import google from "../../images/icons/google.jpg.png";
 import { Link } from "react-router-dom";
 
@@ -83,7 +82,7 @@ function LogRegTable({ title, isLogin, isGoogle }) {
               <button
                 className="w-[90%] h-[35px] flex justify-center items-center gap-4 rounded-2xl text-white bg-[#1f74ec]"
                 s>
-                <img className="w-[15px]" src={google}></img> Google
+                <img className="w-[15px]" src={google} alt="google"></img> Google
               </button>
             </div>
           ) : (

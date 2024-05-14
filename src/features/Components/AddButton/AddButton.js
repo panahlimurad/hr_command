@@ -2,8 +2,11 @@ import React from "react";
 import styles from "./addButton.module.css";
 import { useLocation } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
+import { useDispatch } from "react-redux";
+import { modalToggle } from "../../../store/features/boolensSlice";
 
 function AddButton() {
+  const dispatch = useDispatch()
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -13,7 +16,7 @@ function AddButton() {
 
   return (
     <>
-      <button className={styles.container}><AddIcon sx={{fontSize:"15px"}}/>Add {finalText}</button>
+      <button onClick={()=>dispatch(modalToggle())} className={styles.container}><AddIcon sx={{fontSize:"15px"}}/>Add {finalText}</button>
     </>
   );
 }
