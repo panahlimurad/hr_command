@@ -14,7 +14,7 @@ function PersonalInformation() {
         <p className="font-normal text-[20px]">Personal Information</p>
       </div>
       <div>
-        <form className="mt-5 flex flex-col gap-4">
+        <form className="mt-8 flex flex-col gap-4">
           <div className="flex gap-11">
             <div className="w-[100px]">
               <p className="text-[12px]">PASSPORT NO.</p>
