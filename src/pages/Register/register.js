@@ -8,7 +8,7 @@ function Register() {
     <div className='w-full flex justify-end h-screen p-2'>
     <LoginRightSection/>
     </div>
-    <LogRegTable title={"Register"} isLogin={"Sign up"} isGoogle={true}/>
+    <LogRegTable title={"Register"} isLogin={"Sign up"} isRegister={true}/>
     </div>
   )
 }

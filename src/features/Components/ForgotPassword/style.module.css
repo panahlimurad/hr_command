@@ -43,7 +43,6 @@ input{
 
 button:hover{
     background-color: #2165c4;
-    transition: 300ms;
 }
 
 
@@ -51,7 +50,7 @@ button:hover{
 .containerLogin{
     background-color: #fff;
     position: absolute;
-    top: 25%;
+    top: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
