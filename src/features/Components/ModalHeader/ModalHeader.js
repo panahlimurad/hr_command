@@ -2,14 +2,11 @@ import React from 'react'
 import SmallButton from '../SmallButton/SmallButton'
 
 
-function ModalHeader() {
+function ModalHeader({title}) {
   return (
     <div className='flex justify-between px-4 items-center'>
         <div className='text-[20px]'>
-            Create Employee
-        </div>
-        <div>
-            <SmallButton text="Save"/>
+            {title}
         </div>
     </div>
   )

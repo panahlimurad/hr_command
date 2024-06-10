@@ -30,6 +30,15 @@ function LogRegTable({ title, isLogin, isRegister }) {
     formState: { errors, isSubmitting },
   } = useForm();
 
+  const handleSignInWithGoogle = async () => {
+    try{
+      await signInWithPopup(auth, provider)
+      navigate("/dashboard")
+    }catch(error){
+      console.log(error); 
+    }
+  }
+
   const handleSignUpWithGoogle = async () => {
     try {
       await signInWithPopup(auth, provider);
@@ -161,16 +170,18 @@ function LogRegTable({ title, isLogin, isRegister }) {
                 </p>
               ) : null}
             </div>
-            <div className="w-full flex justify-center flex-col gap-4">
+            <div className="w-full flex justify-center items-center flex-col gap-4">
               <button
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
                 {isSubmitting ? <ButtonSpinner /> : isLogin}
               </button>
-              <button className="w-[90%] h-[35px] gap-2 flex justify-center items-center transition duration-300 hover:bg-[#dce5f3] w-90% rounded-2xl text-[#1f74ec] bg-[#eef4fe]">
-              <img className="w-[15px]" src={google} alt="google"></img>{" "} Google
-              </button>
+              {
+                !isRegister ? <button onClick={handleSignInWithGoogle} className="w-[90%] h-[35px] gap-2 flex justify-center items-center transition duration-300 hover:bg-[#dce5f3] w-90% rounded-2xl text-[#1f74ec] bg-[#eef4fe]">
+                <img className="w-[15px]" src={google} alt="google"></img>{" "} Google
+                </button> : null
+              }
             </div>
           </form>
           <div className="w-[100%] flex justify-center"></div>
