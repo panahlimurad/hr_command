@@ -4,7 +4,7 @@ import styles from './style.module.css'
 function ButtonSpinner() {
   return (
     <div className={styles.spinner}>
-
+      
     </div>
   )
 }

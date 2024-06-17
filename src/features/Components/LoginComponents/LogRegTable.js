@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from "./login.module.css";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Checkbox from "@mui/material/Checkbox";
@@ -118,7 +118,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
                 className={`${errors.email && "border-solid border-[#1f74ec]"}`}
                 {...register("email", { required: "Email is required" })}
                 type="email"
-                id="username"
+                id="email"
                 name="email"
                 placeholder="Example@gmail.com"
               />

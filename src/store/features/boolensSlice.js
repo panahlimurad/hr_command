@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value:false
+    value:false,
+    confirm:false
 }
 
 const booleanSlice = createSlice({
@@ -10,11 +11,14 @@ const booleanSlice = createSlice({
     reducers:{
         modalToggle: state=>{
             state.value = !state.value
+        },
+        confirmToggle: state=>{
+            state.confirm = !state.confirm
         }
     }
 })
 
 
-export const {modalToggle} = booleanSlice.actions
+export const {modalToggle, confirmToggle} = booleanSlice.actions
 
 export default booleanSlice.reducer
