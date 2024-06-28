@@ -3,28 +3,39 @@ import styles from "./style.module.css";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import ButtonSpinner from "../ButtonSpinner/ButtonSpinner";
-import "firebase/compat/auth";  
-import { sendPasswordResetEmail } from "firebase/auth";
-import { auth } from "../../../firebase/firebase";
+import { useMutation } from "react-query";
+import { ForgotPasswordApi } from "../../Services/api";
+import notify from "../../Functions/Toastify/notify";
+import { useNavigate } from "react-router-dom";
+
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 function ForgotPassword() {
 
+  const navigate = useNavigate()
   const [] = useState(false)
   const {register, handleSubmit, reset, formState:{errors, isSubmitting}} = useForm()
  
-  const sendPasswordReset = async(data)=>{
-    try{
-      await sendPasswordResetEmail(auth, data.email)
-      console.log("success")
-      reset()
-    }catch(error)  {
-    
-      console.log(error)
+  
 
-    }
-  }
+  const mutate = useMutation((data) => ForgotPasswordApi(data), {
+    onSuccess: (response) => {
+      notify(response?.data?.message, "success");
+      reset();
+      console.log(response);
+      navigate("/reset_password");
+    },
+    onError: (error) => {
+      if (error) {
+        notify(error?.response?.data?.message, "error");
+      }
+    },
+  });
+
+  const sendPasswordReset = (data) => {
+    mutate.mutate(data);
+  };
 
   return (
     <motion.div 

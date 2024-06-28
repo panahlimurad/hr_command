@@ -1,5 +1,5 @@
 import React from 'react'
-import SmallButton from '../SmallButton/SmallButton'
+
 
 
 function ModalHeader({title}) {
