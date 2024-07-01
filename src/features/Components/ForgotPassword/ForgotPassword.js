@@ -7,6 +7,7 @@ import { useMutation } from "react-query";
 import { ForgotPasswordApi } from "../../Services/api";
 import notify from "../../Functions/Toastify/notify";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"; 
 
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -14,16 +15,15 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 function ForgotPassword() {
 
   const navigate = useNavigate()
-  const [] = useState(false)
   const {register, handleSubmit, reset, formState:{errors, isSubmitting}} = useForm()
  
   
 
   const mutate = useMutation((data) => ForgotPasswordApi(data), {
-    onSuccess: (response) => {
+    onSuccess: (response, variables) => {
       notify(response?.data?.message, "success");
       reset();
-      console.log(response);
+      Cookies.set('email', variables.email);
       navigate("/reset_password");
     },
     onError: (error) => {

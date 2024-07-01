@@ -38,3 +38,15 @@ export const ResetPasswordApi = async(data)=>{
         throw error
     }
 }
+
+
+export const OtpExpire = async(data)=>{
+    try{
+        const response = await instanceAxiosAdmin.post("/api/v1/check-otp-expiry", data)
+        return response
+    }catch(error){
+        throw error
+    }
+}
+
+
