@@ -9,8 +9,7 @@ import notify from "../../Functions/Toastify/notify";
 import { motion } from "framer-motion";
 import { useMutation } from "react-query";
 import { Login, Register } from "../../Services/api";
-import Cookies from 'js-cookie';
-
+import Cookies from "js-cookie";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -20,7 +19,6 @@ function LogRegTable({ title, isLogin, isRegister }) {
   const [isConfirmPassword, setIsConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
-  
   const handleClickPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -33,7 +31,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
 
   const mutateLogin = useMutation((data) => Login(data), {
@@ -43,7 +41,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
       if (rememberMe) {
         Cookies.set("token", response?.data?.token, {
           expires: 7,
-        })
+        });
       }
       // navigate("/");
     },
@@ -62,7 +60,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
     },
     onError: (error) => {
       if (error) {
-        notify(error?.response?.data?.message?.password[0], "error");
+        notify(error?.response?.data?.message?.email[0], "error");
       }
     },
   });
@@ -88,7 +86,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
     >
       <div className="w-[90%] gap-5 h-[90%] flex flex-col items-center">
         <div className="text-center">
-          <h1 className="font-bold text-2xl">{title}</h1>
+          <h1 className="font-bold text-2xl text-colorDefault">{title}</h1>
           <p className="text-xs font-light mt-2">
             Welcome! Please enter your details
           </p>
@@ -102,9 +100,9 @@ function LogRegTable({ title, isLogin, isRegister }) {
             }
             className="w-[100%] flex flex-col items-start"
           >
-            <div className="w-full text-center">
+            <div className="w-full text-center h-[35px]">
               <input
-                className={`${errors.email && "border-solid border-[#1f74ec]"}`}
+                className={`${errors.email && "border-solid border-colorDefault"}`}
                 {...register("email", { required: "Email is required" })}
                 type="email"
                 id="email"
@@ -112,16 +110,16 @@ function LogRegTable({ title, isLogin, isRegister }) {
                 placeholder="Example@gmail.com"
               />
               {errors.email && (
-                <p className="text-[10px] text-[#1f74ec] mt-1">
+                <p className="text-[10px] text-colorDefault mt-1">
                   {errors.email.message}
                 </p>
               )}
             </div>
             <br />
-            <div className="relative w-full text-center">
+            <div className="relative w-full text-center h-[35px]">
               <input
                 className={`${
-                  errors.password && "border-solid border-[#1f74ec]"
+                  errors.password && "border-solid border-colorDefault"
                 }`}
                 {...register("password", { required: "Password is required" })}
                 type={showPassword ? "text" : "password"}
@@ -183,12 +181,12 @@ function LogRegTable({ title, isLogin, isRegister }) {
               </div>
             )}
             <div
-              className={`flex gap-10 items-center mt-4 ${
-                isRegister ? "justify-start ml-1" : "justify-around"
+              className={`flex w-full  justify-between px-5 items-center mt-2 ${
+                !isRegister ? "justify-start ml-1" : "justify-around"
               }`}
             >
               {!isRegister ? (
-                <div className="text-xs">
+                <div className="text-[10px] md:text-xs">
                   <Checkbox
                     onChange={(e) => setRememberMe(e.target.checked)}
                     {...label}
@@ -197,19 +195,23 @@ function LogRegTable({ title, isLogin, isRegister }) {
                 </div>
               ) : null}
               {!isRegister ? (
-                <p className="text-xs">
+                <p className="text-[10px] md:text-xs">
                   <Link to="/forgot_password" className="text-[#1f74ec]">
                     Forgot Password
                   </Link>
                 </p>
               ) : null}
             </div>
-            <div className="w-full flex justify-center items-center flex-col gap-4">
+            <div className="w-full flex justify-center mt-2 items-center flex-col gap-4">
               <button
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
-                {isSubmitting ? <ButtonSpinner /> : isLogin}
+                {mutation.isLoading || mutateLogin.isLoading ? (
+                  <ButtonSpinner />
+                ) : (
+                  isLogin
+                )}
               </button>
               {/* {!isRegister ? (
                 <button

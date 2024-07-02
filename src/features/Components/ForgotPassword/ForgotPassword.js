@@ -49,7 +49,7 @@ function ForgotPassword() {
     className={styles.containerLogin}>
       <div className="w-[90%] gap-5 h-[90%] flex flex-col items-center">
         <div className="text-center">
-          <h1 className="font-bold text-2xl"></h1>
+          <h1 className="font-bold text-2xl text-colorDefault">Send OTP</h1>
           <p className="text-xs font-normal mt-2">
             Please enter your email
           </p>
@@ -59,7 +59,7 @@ function ForgotPassword() {
           onSubmit={handleSubmit(sendPasswordReset)}
             className="w-[100%] flex flex-col items-start"
           >
-            <div className="w-full text-center">
+            <div className="w-full h-[35px] text-center">
               <input
               className={`${errors.email && "border-solid border-[#1f74ec]"}`}
               {...register("email", { required: "Email is required" })}
@@ -80,7 +80,7 @@ function ForgotPassword() {
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
-                {isSubmitting ? <ButtonSpinner /> : "Send"}
+                {mutate.isLoading ? <ButtonSpinner /> : "Send"}
               </button>
             </div>
           </form>

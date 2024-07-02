@@ -101,15 +101,15 @@ function ResetPassword() {
     >
       <div className="w-[90%] gap-5 h-[90%] flex flex-col items-center">
         <div className="text-center">
-          <h1 className="font-bold text-2xl"></h1>
+          <h1 className="font-bold text-2xl text-colorDefault">Reset Password</h1>
           <p className="text-xs font-normal mt-2">Please enter your email</p>
         </div>
         <div className="flex w-full flex-col gap-4 items-center">
           <form
             onSubmit={handleSubmit(sendPasswordReset)}
-            className="w-[100%] flex flex-col items-start"
+            className="w-[100%] flex flex-col gap-4 items-start"
           >
-            <div className="w-full text-center">
+            <div className="w-full text-center h-[35px]">
               <input
                 className={`${errors.email && "border-solid border-[#1f74ec]"}`}
                 {...register("email", { required: "Email is required" })}
@@ -125,7 +125,7 @@ function ResetPassword() {
               )}
             </div>
 
-            <div className="w-full text-center">
+            <div className="w-full text-center h-[35px] mt-1">
               <input
                 className={`${errors.otp && "border-solid border-[#1f74ec]"}`}
                 {...register("otp", { required: "Otp is required" })}
@@ -141,7 +141,7 @@ function ResetPassword() {
               )}
             </div>
 
-            <div className="relative w-full text-center">
+            <div className="relative w-full text-center h-[35px] mt-1">
               <input
                 className={`${
                   errors.password && "border-solid border-[#1f74ec]"
@@ -157,7 +157,6 @@ function ResetPassword() {
                   {errors.password.message}
                 </p>
               )}
-              <br />
               <VisibilityOffIcon
                 onClick={handleClickPassword}
                 className={`${
@@ -172,7 +171,7 @@ function ResetPassword() {
               />
             </div>
 
-            <div className="relative w-full text-center">
+            <div className="relative w-full text-center h-p[35px] mt-1">
               <input
                 className={`${
                   errors.password && "border-solid border-[#1f74ec]"
@@ -190,7 +189,6 @@ function ResetPassword() {
                   {errors.password.message}
                 </p>
               )}
-              <br />
               <VisibilityOffIcon
                 onClick={handleClickConfirmPassword}
                 className={`${
@@ -204,19 +202,17 @@ function ResetPassword() {
                 }}
               />
             </div>
-
-            <br />
             <div className="w-full flex justify-center">
               <button
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
-                {isSubmitting ? <ButtonSpinner /> : "Send"}
+                {mutate.isLoading ? <ButtonSpinner /> : "Send"}
               </button>
             </div>
           </form>
           {expiryTime !== null && (
-            <div className="text-center mt-2">
+            <div className="text-center text-colorDefault mt-2">
               <p>OTP expires in: {formatTime(expiryTime)}</p>
             </div>
           )}
