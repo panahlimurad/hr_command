@@ -21,12 +21,11 @@ function ResetPassword() {
   const navigate = useNavigate();
   const [] = useState(false);
   const [otpEmail, setOtpEmail] = useState(null);
-
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm();
   const [showPassword, setShowPassword] = useState(false);
   const [isConfirmPassword, setIsConfirmPassword] = useState(false);
@@ -164,10 +163,13 @@ function ResetPassword() {
             <div className="w-full text-center h-[35px] mt-1">
               <input
                 className={`${errors.otp && "border-solid border-[#1f74ec]"}`}
-                {...register("otp", { required: "Otp is required", pattern: {
-                  value: /^[0-9]+$/,
-                  message: "OTP must be a positive number"
-                } })}
+                {...register("otp", {
+                  required: "Otp is required",
+                  pattern: {
+                    value: /^[0-9]+$/,
+                    message: "OTP must be a positive number",
+                  },
+                })}
                 type="number"
                 id="otp"
                 name="otp"
@@ -243,7 +245,7 @@ function ResetPassword() {
             </div>
             <div className="w-full flex justify-center">
               <button
-                disabled={mutate.isLoading}
+                disabled={mutate.isLoading || expiryTime === 0}
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
@@ -253,17 +255,21 @@ function ResetPassword() {
           </form>
           {expiryTime !== null && (
             <div className="text-center text-colorDefault mt-2">
-              <p>OTP expires in: {formatTime(expiryTime)}</p>
+              {expiryTime === 0 ? (
+                "Otp password has expired, please resend"
+              ) : (
+                <p>OTP expires in: {formatTime(expiryTime)}</p>
+              )}
             </div>
           )}
-          {!mutateSendOtpAgain.isLoading && 
-          <p
-          onClick={sendOtpAgain}
-          className="text-[15px] transition duration-300 hover:text-white hover:bg-colorDefault rounded-2xl px-3 py-1 cursor-pointer text-[#1f74ec] mt-1"
-          >
-            Send OTP again
-          </p>
-          }
+          {!mutateSendOtpAgain.isLoading && (
+            <p
+              onClick={sendOtpAgain}
+              className="text-[15px] transition duration-300 hover:text-white hover:bg-colorDefault rounded-2xl px-3 py-1 cursor-pointer text-[#1f74ec] mt-1"
+            >
+              Send OTP again
+            </p>
+          )}
         </div>
       </div>
     </motion.div>

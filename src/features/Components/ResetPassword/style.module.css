@@ -55,12 +55,13 @@ button:hover{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    left: 10%;
+    left: 20%;
     transform: translate( -50%, -50% );
     width: 30%;
     height: auto;
     padding: 35px;
     border-radius: 15px;
+    height: 445px;
 }
 
 .cunstomToast{
