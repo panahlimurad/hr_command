@@ -4,7 +4,11 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import ButtonSpinner from "../ButtonSpinner/ButtonSpinner";
 import { useMutation, useQuery } from "react-query";
-import { OtpExpire, ResetPasswordApi } from "../../Services/api";
+import {
+  ForgotPasswordApi,
+  OtpExpire,
+  ResetPasswordApi,
+} from "../../Services/api";
 import notify from "../../Functions/Toastify/notify";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
@@ -16,6 +20,8 @@ const label = { inputProps: { "aria-label": "Checkbox demo" } };
 function ResetPassword() {
   const navigate = useNavigate();
   const [] = useState(false);
+  const [otpEmail, setOtpEmail] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -42,11 +48,37 @@ function ResetPassword() {
       navigate("/login");
     },
     onError: (error) => {
+      let errorMessage = "Something went wrong";
+
+      if (error?.response?.data?.message?.password) {
+        errorMessage = error?.response?.data?.message?.password[0];
+      } else {
+        errorMessage = error?.response?.data?.message;
+      }
+
+      notify(errorMessage, "error");
+      reset();
+    },
+  });
+
+  const mutateSendOtpAgain = useMutation((data) => ForgotPasswordApi(data), {
+    onSuccess: (response) => {
+      notify(response?.data?.message, "success");
+      navigate("/reset_password");
+      otpExpire.mutate({ email: otpEmail });
+    },
+    onError: (error) => {
       if (error) {
         notify(error?.response?.data?.message, "error");
+        reset();
       }
     },
   });
+
+  const sendOtpAgain = () => {
+    const dataOtp = { email: otpEmail };
+    mutateSendOtpAgain.mutate(dataOtp);
+  };
 
   const otpExpire = useMutation((data) => OtpExpire(data), {
     onSuccess: (response) => {
@@ -61,6 +93,7 @@ function ResetPassword() {
 
   useEffect(() => {
     const email = Cookies.get("email");
+    setOtpEmail(email);
     if (email) {
       otpExpire.mutate({ email });
     }
@@ -85,7 +118,8 @@ function ResetPassword() {
   };
 
   const sendPasswordReset = (data) => {
-    mutate.mutate(data);
+    const requestData = { ...data, email: otpEmail };
+    mutate.mutate(requestData);
   };
 
   return (
@@ -101,15 +135,17 @@ function ResetPassword() {
     >
       <div className="w-[90%] gap-5 h-[90%] flex flex-col items-center">
         <div className="text-center">
-          <h1 className="font-bold text-2xl text-colorDefault">Reset Password</h1>
-          <p className="text-xs font-normal mt-2">Please enter your email</p>
+          <h1 className="font-bold text-2xl text-colorDefault">
+            Reset Password
+          </h1>
+          <p className="text-xs font-normal mt-2">OTP sent to {otpEmail}</p>
         </div>
         <div className="flex w-full flex-col gap-4 items-center">
           <form
             onSubmit={handleSubmit(sendPasswordReset)}
             className="w-[100%] flex flex-col gap-4 items-start"
           >
-            <div className="w-full text-center h-[35px]">
+            {/* <div className="w-full text-center h-[35px]">
               <input
                 className={`${errors.email && "border-solid border-[#1f74ec]"}`}
                 {...register("email", { required: "Email is required" })}
@@ -123,12 +159,15 @@ function ResetPassword() {
                   {errors.email.message}
                 </p>
               )}
-            </div>
+            </div> */}
 
             <div className="w-full text-center h-[35px] mt-1">
               <input
                 className={`${errors.otp && "border-solid border-[#1f74ec]"}`}
-                {...register("otp", { required: "Otp is required" })}
+                {...register("otp", { required: "Otp is required", pattern: {
+                  value: /^[0-9]+$/,
+                  message: "OTP must be a positive number"
+                } })}
                 type="number"
                 id="otp"
                 name="otp"
@@ -204,6 +243,7 @@ function ResetPassword() {
             </div>
             <div className="w-full flex justify-center">
               <button
+                disabled={mutate.isLoading}
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
@@ -216,6 +256,14 @@ function ResetPassword() {
               <p>OTP expires in: {formatTime(expiryTime)}</p>
             </div>
           )}
+          {!mutateSendOtpAgain.isLoading && 
+          <p
+          onClick={sendOtpAgain}
+          className="text-[15px] transition duration-300 hover:text-white hover:bg-colorDefault rounded-2xl px-3 py-1 cursor-pointer text-[#1f74ec] mt-1"
+          >
+            Send OTP again
+          </p>
+          }
         </div>
       </div>
     </motion.div>

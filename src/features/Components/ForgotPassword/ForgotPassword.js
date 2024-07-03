@@ -29,6 +29,7 @@ function ForgotPassword() {
     onError: (error) => {
       if (error) {
         notify(error?.response?.data?.message, "error");
+        reset()
       }
     },
   });
@@ -77,6 +78,7 @@ function ForgotPassword() {
             <br />
             <div className="w-full flex justify-center">
               <button
+                disabled={mutate.isLoading}
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >

@@ -18,7 +18,6 @@ function LogRegTable({ title, isLogin, isRegister }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isConfirmPassword, setIsConfirmPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-
   const handleClickPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -31,6 +30,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -48,6 +48,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
     onError: (error) => {
       if (error) {
         notify(error?.response?.data?.message, "error");
+        setValue("password", "");
       }
     },
   });
@@ -59,9 +60,19 @@ function LogRegTable({ title, isLogin, isRegister }) {
       navigate("/login");
     },
     onError: (error) => {
-      if (error) {
-        notify(error?.response?.data?.message?.email[0], "error");
+
+      let errorMessage = "Something went wrong";
+
+      if (error?.response?.data?.message?.email) {
+        errorMessage = error?.response?.data?.message?.email[0];
       }
+      else {
+        errorMessage = error?.response?.data?.message?.password[0];
+      }
+
+      notify(errorMessage, "error");
+      setValue("password", "");
+      setValue("password_confirmation", "");
     },
   });
 
@@ -103,7 +114,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
             <div className="w-full text-center h-[35px]">
               <input
                 className={`${errors.email && "border-solid border-colorDefault"}`}
-                {...register("email", { required: "Email is required" })}
+                {...register("email", { required: "Email is required", pattern: { value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, message: 'Invalid email address' } })}
                 type="email"
                 id="email"
                 name="email"
@@ -204,6 +215,7 @@ function LogRegTable({ title, isLogin, isRegister }) {
             </div>
             <div className="w-full flex justify-center mt-2 items-center flex-col gap-4">
               <button
+              disabled={mutation.isLoading || mutateLogin.isLoading}
                 type="submit"
                 className="w-[90%] h-[35px] flex justify-center items-center w-90% rounded-2xl text-white bg-[#1f74ec]"
               >
