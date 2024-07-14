@@ -2,7 +2,7 @@ import React from "react";
 import ForgotPassword from "../../features/Components/ForgotPassword/ForgotPassword";
 import LoginRightSection from "../../features/Components/LoginComponents/LoginRightSection";
 
-const Forgot_password = () => {
+const ForgotPassPage = () => {
   return (
     <div className="w-full bg-[#f6fafe] h-screen relative">
       <div className="w-full flex justify-end h-screen p-2">
@@ -13,4 +13,4 @@ const Forgot_password = () => {
   );
 };
 
-export default Forgot_password;
+export default ForgotPassPage;

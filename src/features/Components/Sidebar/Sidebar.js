@@ -6,6 +6,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import EventIcon from '@mui/icons-material/Event';
 import profileDefault from '../../images/icons/profileDefault.svg'
 import InfoIcon from '@mui/icons-material/Info';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { Link } from "react-router-dom";
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion';
 
@@ -38,6 +39,9 @@ function Sidebar() {
           </Link>
           <Link className="w-full" to="about_us">
           <li> <InfoIcon sx={{ fontSize: 20 }}/>About Us</li>
+          </Link>
+          <Link className="w-full" to="profile">
+          <li> <ManageAccountsIcon sx={{ fontSize: 20 }}/>Profile</li>
           </Link>
         </ul>
       </div>

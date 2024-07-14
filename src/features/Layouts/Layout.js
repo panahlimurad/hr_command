@@ -12,8 +12,9 @@ import Register from "../../pages/Register/register";
 import Vacancies from "../../pages/Vacancies/vacancies";
 import Departaments from "../../pages/Departaments/departaments";
 import AddModal from "../Components/AddModal/AddModal";
-import Forgot_password from "../../pages/ForgotPassword/forgot_password";
-import Reset_password from "../../pages/ResetPassword/reset_password";
+import Profile from "../../pages/Profile/profile";
+import ForgotPassPage from "../../pages/ForgotPassword/forgot_password";
+import ResetPassPage from "../../pages/ResetPassword/reset_password";
 
 function Layout() {
   const location = useLocation();
@@ -28,7 +29,7 @@ function Layout() {
             <Sidebar />
           </div>
         )}
-        <div className={`flex flex-col  ${pathname === "/login"  || pathname === "/register" || pathname === "/forgot_password" || pathname === "/reset_password" ? "w-[100%]" : "w-[80%]"}`}>
+        <div className={`flex flex-col items-center ${pathname === "/login"  || pathname === "/register" || pathname === "/forgot_password" || pathname === "/reset_password" ? "w-[100%]" : "w-[80%]"}`}>
           {pathname !== "/login" && pathname !== "/register" && pathname !== "/forgot_password" && pathname !== "/reset_password" && <Header />}
           <Routes>
             <Route path="/" element={<Dashboard />} />
@@ -40,8 +41,9 @@ function Layout() {
             <Route path="/register" element={<Register />} />
             <Route path="/vacancies" element={<Vacancies />} />
             <Route path="/departaments" element={<Departaments />} />
-            <Route path="/forgot_password" element={<Forgot_password />} />
-            <Route path="/reset_password" element={<Reset_password />} />
+            <Route path="/forgot_password" element={<ForgotPassPage />} />
+            <Route path="/reset_password" element={<ResetPassPage />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
         <AddModal/>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./style.module.css";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
@@ -10,12 +10,11 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"; 
 
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 function ForgotPassword() {
 
   const navigate = useNavigate()
-  const {register, handleSubmit, reset, formState:{errors, isSubmitting}} = useForm()
+  const {register, handleSubmit, reset, formState:{errors}} = useForm()
  
   
 

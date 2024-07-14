@@ -7,6 +7,13 @@ module.exports = {
     extend: {
       colors: {
         'colorDefault': '#1f74ec',
+        'borderDefault': '#E0E4EA',
+        'smallIconColor': '#23272C',
+        "textColor": '#23272C',
+        "textLightColor": '#8b8c91',
+      },
+      spacing: {
+        "indent-4": "4rem",
       }
     },
   },

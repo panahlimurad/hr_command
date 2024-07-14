@@ -23,8 +23,8 @@ function EmployessCard({ isDetail }) {
   return (
     <div className={!isDetail ? styles.container : styles.containerDetails}>
       {!isDetail && (
-        <div className="w-full items-center gap-2 mt-2 flex justify-end">
-          <StatusPanelSmall text="ACTIVE"/>
+        <div className="mt-2 flex w-full items-center justify-end gap-2">
+          <StatusPanelSmall text="ACTIVE" />
           <div>
             <Button
               id="basic-button"
@@ -59,14 +59,14 @@ function EmployessCard({ isDetail }) {
           ></img>
         </div>
         <div>
-          <h3 className="text-[20px] text-[#23272C] font-medium">Woker Name</h3>
+          <h3 className="text-[20px] font-medium text-[#23272C]">Woker Name</h3>
           <h5 className="text-[16px] text-[#17243E]">Front End Developer</h5>
         </div>
         <div></div>
       </div>
 
       <div className="flex flex-col gap-4">
-        <div className="flex text-[12px] text-[#343942] font-light">
+        <div className="flex text-[12px] font-light text-[#343942]">
           <p className="flex-1">DEPARTAMENT</p>
           <p className="flex-1">DATE OF JOINING</p>
         </div>
@@ -76,7 +76,7 @@ function EmployessCard({ isDetail }) {
         </div>
       </div>
 
-      <div className="bg-[#f4f5f7] w-[95%] rounded-2xl p-4 flex flex-col gap-4">
+      <div className="flex w-[95%] flex-col gap-4 rounded-2xl bg-[#f4f5f7] p-4">
         <div className="flex gap-4">
           <EmailIcon sx={{ color: "#cbcfd4" }} />{" "}
           <a className="text-[#23272C]" href="mailto:{dataGelecek}">
@@ -88,15 +88,15 @@ function EmployessCard({ isDetail }) {
           <CallIcon sx={{ color: "#cbcfd4" }} /> (055) 8798239583
         </div>
       </div>
-      {!isDetail && 
-      <div className="w-[95%]">
-        <Link to="/employees-details">
-          <button className="bg-[#1e74ec] text-white w-full rounded-2xl h-[40px]">
-            View
-          </button>
-        </Link>
-      </div>
-      }
+      {!isDetail && (
+        <div className="w-[95%]">
+          <Link to="/employees-details">
+            <button className="h-[40px] w-full rounded-2xl bg-[#1e74ec] text-white">
+              View
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }
