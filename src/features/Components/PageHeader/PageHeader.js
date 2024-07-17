@@ -8,7 +8,7 @@ import Select from "@mui/material/Select";
 import AddButton from "../AddButton/AddButton";
 import { useLocation } from "react-router-dom";
 
-function PageHeader() {
+function PageHeader({leaves}) {
  
   const location = useLocation()
   const pathname = location.pathname
@@ -29,7 +29,7 @@ function PageHeader() {
       <div className="flex gap-10 justify-center items-center w-[50%]">
         <Box sx={{ minWidth: 120, backgroundColor:"#eef4fe"}}>
           <FormControl fullWidth >
-            <InputLabel sx={{top: '-8px', left: '-5px'}}  id="demo-simple-select-label">Filter</InputLabel>
+            <InputLabel sx={{top: '-8px', left: '-5px'}}  id="demo-simple-select-label">{leaves ? "Sort by" : "Filter"}</InputLabel>
             <Select
             sx={{height:30}}
               labelId="demo-simple-select-label"
@@ -43,6 +43,24 @@ function PageHeader() {
             </Select>
           </FormControl>
         </Box>
+        {leaves && 
+        <Box sx={{ minWidth: 120, backgroundColor:"#eef4fe"}}>
+        <FormControl fullWidth >
+          <InputLabel sx={{top: '-8px', left: '-5px'}}  id="demo-simple-select-label">Designation</InputLabel>
+          <Select
+          sx={{height:30}}
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+        }
         <AddButton  text="Add Departament"/>
       </div>
     </div>

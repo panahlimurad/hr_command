@@ -14,7 +14,7 @@ module.exports = {
       },
       spacing: {
         "indent-4": "4rem",
-      }
+      },
     },
   },
   plugins: [

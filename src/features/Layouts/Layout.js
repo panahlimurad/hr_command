@@ -15,6 +15,7 @@ import AddModal from "../Components/AddModal/AddModal";
 import Profile from "../../pages/Profile/profile";
 import ForgotPassPage from "../../pages/ForgotPassword/forgot_password";
 import ResetPassPage from "../../pages/ResetPassword/reset_password";
+import Leaves from "../../pages/Leaves/leaves";
 
 function Layout() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function Layout() {
             <Route path="/forgot_password" element={<ForgotPassPage />} />
             <Route path="/reset_password" element={<ResetPassPage />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/leaves" element={<Leaves />} />
           </Routes>
         </div>
         <AddModal/>
