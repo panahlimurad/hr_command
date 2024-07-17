@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import ButtonSpinner from "../ButtonSpinner/ButtonSpinner";
 import { useMutation } from "react-query";
 import { ForgotPasswordApi } from "../../Services/api";
-import notify from "../../Functions/Toastify/notify";
+import notify from "../../utils/Functions/Toastify/notify";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"; 
 

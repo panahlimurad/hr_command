@@ -5,7 +5,7 @@ import Checkbox from "@mui/material/Checkbox";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import ButtonSpinner from "../ButtonSpinner/ButtonSpinner";
-import notify from "../../Functions/Toastify/notify";
+import notify from "../../utils/Functions/Toastify/notify";
 import { motion } from "framer-motion";
 import { useMutation } from "react-query";
 import { Login, Register } from "../../Services/api";

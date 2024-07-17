@@ -5,7 +5,7 @@ import { db } from "../../../firebase/firebase";
 import { getAuth } from "firebase/auth";
 import SmallButton from "../SmallButton/SmallButton";
 import { useForm } from "react-hook-form";
-import notify from "../../Functions/Toastify/notify";
+import notify from "../../utils/Functions/Toastify/notify";
 import CancelConfirm from "../CancelConfirm/CancelConfirm";
 import { useDispatch, useSelector } from "react-redux";
 import { confirmToggle } from "../../../store/features/boolensSlice";

@@ -9,7 +9,7 @@ import {
   OtpExpire,
   ResetPasswordApi,
 } from "../../Services/api";
-import notify from "../../Functions/Toastify/notify";
+import notify from "../../utils/Functions/Toastify/notify";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
