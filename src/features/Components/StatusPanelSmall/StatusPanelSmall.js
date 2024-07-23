@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function StatusPanelSmall({text}) {
+function StatusPanelSmall({ text }) {
   return (
-    <div className="w-[20%] h-[24px] text-[#0EB01D]  bg-[#DDFCE0] rounded-2xl text-[11px] font-normal items-center flex justify-center">
-            {text}
-          </div>
-  )
+    <div className="flex h-[24px] w-[25%] items-center justify-center rounded-2xl bg-[#DDFCE0] text-[10px] font-normal text-[#0EB01D]">
+      {text}
+    </div>
+  );
 }
 
-export default StatusPanelSmall
+export default StatusPanelSmall;

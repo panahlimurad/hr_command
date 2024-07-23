@@ -26,12 +26,13 @@ function Layout() {
     <div>
       <div className="flex w-full">
         {pathname !== "/login" && pathname !== "/register" && pathname !== "/forgot_password" && pathname !== "/reset_password" && (
-          <div className="w-[20%]">
+          <div className="w-[16%]">
             <Sidebar />
           </div>
         )}
-        <div className={`flex flex-col items-center ${pathname === "/login"  || pathname === "/register" || pathname === "/forgot_password" || pathname === "/reset_password" ? "w-[100%]" : "w-[80%]"}`}>
+        <div className={`flex flex-col items-center ${pathname === "/login"  || pathname === "/register" || pathname === "/forgot_password" || pathname === "/reset_password" ? "w-[100%]" : "w-[84%]"}`}>
           {pathname !== "/login" && pathname !== "/register" && pathname !== "/forgot_password" && pathname !== "/reset_password" && <Header />}
+          <div className=" w-[95%]  flex justify-center items-center">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/about_us" element={<AboutUs />} />
@@ -47,6 +48,7 @@ function Layout() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/leaves" element={<Leaves />} />
           </Routes>
+          </div>
         </div>
         <AddModal/>
       </div>

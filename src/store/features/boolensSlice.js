@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     value:false,
-    confirm:false
+    confirm:false,
 }
 
 const booleanSlice = createSlice({

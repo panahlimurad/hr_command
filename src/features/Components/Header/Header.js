@@ -7,7 +7,8 @@ import RealTime from "../RealTime/RealTime";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import ArrowDropDownTwoToneIcon from '@mui/icons-material/ArrowDropDownTwoTone';
+import ArrowDropDownTwoToneIcon from "@mui/icons-material/ArrowDropDownTwoTone";
+// import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,18 +23,19 @@ function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.headerMain}>
-        <div className="w-[100%] lg:w-[50%] flex gap-2 justify-center items-center">
-          <LightModeIcon sx={{cursor:"pointer"}}/>
-          <NotificationsIcon sx={{cursor:"pointer"}}/>
-          <SettingsIcon sx={{cursor:"pointer"}}/>
+        <div className="flex w-[100%] items-center justify-center gap-2 lg:w-[50%]">
+          <LightModeIcon sx={{ cursor: "pointer" }} />
+          <NotificationsIcon sx={{ cursor: "pointer" }} />
+          <SettingsIcon sx={{ cursor: "pointer" }} />
           <Button
-          sx={{color:"#17243e"}}
+            sx={{ color: "#17243e" }}
             id="basic-button"
             aria-controls={open ? "basic-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
-            onClick={handleClick}>
-          ENG <ArrowDropDownTwoToneIcon />
+            onClick={handleClick}
+          >
+            ENG <ArrowDropDownTwoToneIcon />
           </Button>
           <Menu
             id="basic-menu"
@@ -42,7 +44,8 @@ function Header() {
             onClose={handleClose}
             MenuListProps={{
               "aria-labelledby": "basic-button",
-            }}>
+            }}
+          >
             <MenuItem onClick={handleClose}>ENG</MenuItem>
             <MenuItem onClick={handleClose}>AZE</MenuItem>
           </Menu>
