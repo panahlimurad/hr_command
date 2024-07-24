@@ -28,7 +28,7 @@ function PageHeader({ leaves }) {
         <form>
           <select
             id="small"
-            class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+            class="block w-full h-[32px] rounded-lg border border-gray-300 bg-gray-50 text-[13px] text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
           >
             <option selected>Choose a country</option>
             <option value="US">United States</option>

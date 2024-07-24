@@ -20,24 +20,17 @@ function EmpPageHeader({text}) {
   return (
     <div className={styles.container}>
       <div className={styles.text}>{text}</div>
-      <div className="flex gap-4 justify-center items-center w-[50%]">
+      <div className="flex gap-4 justify-end items-center w-[50%]">
         <p className="text-[13px] text-[#343942]">STATUS</p>
-        <Box sx={{ minWidth: 120, backgroundColor:"#eef4fe"}}>
-          <FormControl fullWidth >
-            <InputLabel sx={{top: '-8px', left: '-5px'}}  id="demo-simple-select-label">Filter</InputLabel>
-            <Select
-            sx={{height:30}}
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
+        <form>
+          <select
+            id="small"
+            className="h-[30px] cursor-pointer block w-full  rounded-lg border border-gray-300 bg-gray-50 text-[13px] text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+          >
+            <option selected>Choose a status</option>
+            <option value="Active">Active</option>
+          </select>
+        </form>
         <SaveButton text="Save"/>
       </div>
     </div>

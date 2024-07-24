@@ -12,6 +12,9 @@ function EmployeesCardContainer() {
         <EmployessCard />
         <EmployessCard />
         <EmployessCard />
+        <EmployessCard />
+        <EmployessCard />
+        <EmployessCard />
         </ScrollableContainer>
     </div>
   )

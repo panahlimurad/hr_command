@@ -14,10 +14,10 @@ const DropdownMenu = () => {
         aria-controls="speed-dial-menu-top-right"
         aria-expanded={menuOpen}
         onClick={toggleMenu}
-        className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-700 text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-700 text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-white dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-white"
       >
         <svg
-          className={`h-2 w-2 transition-transform duration-500 ${menuOpen ? "rotate-45" : ""}`}
+          className={`h-3 w-3 transition-transform duration-500 ${menuOpen ? "rotate-45" : ""}`}
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -34,7 +34,7 @@ const DropdownMenu = () => {
       </button>
       <div
         id="speed-dial-menu-top-right"
-        className={`mt-3 flex flex-col absolute z-10 items-center space-y-2 transition-all duration-500 ${menuOpen ? "opacity-100" : "opacity-0"} ${menuOpen ? "translate-y-0" : "-translate-y-5"}`}
+        className={`absolute z-10 mt-3 flex flex-col items-center space-y-2 transition-all duration-500 ${menuOpen ? "opacity-100" : "opacity-0"} ${menuOpen ? "translate-y-0" : "-translate-y-5"}`}
       >
         <button
           type="button"
@@ -86,7 +86,6 @@ const DropdownMenu = () => {
           Print
           <div className="tooltip-arrow" data-popper-arrow></div>
         </div>
-
       </div>
     </div>
   );

@@ -15,13 +15,13 @@ function Sidebar() {
   <div className={styles.containerSidebar}>
     <div className={styles.sidebarMain}>
       <div className="flex flex-col gap-4 justify-center items-center text-white">
-        <h3>Logo</h3>
+        <p>Company Name</p>
         <img className="w-12 h-12 rounded-full object-cover" src={profileDefault} alt="logo"></img>
-      <h3>HR NAME</h3>
-      <h4>hr.@gmail.com</h4>
+      <h3 className="text-[12px]">HR NAME</h3>
+      <h4 className="text-[12px]">hr.@gmail.com</h4>
       </div>
       <div>
-        <ul className={`${styles.customUl} w-full flex flex-col gap-5 items-center mt-8`}>
+        <ul className={`${styles.customUl} w-full flex flex-col gap-5 items-center mt-8 text-[13px]`}>
           <Link className="w-full" to='/'>
           <li> <DashboardIcon sx={{ fontSize: 20 }}/>Dashboard</li>
           </Link>

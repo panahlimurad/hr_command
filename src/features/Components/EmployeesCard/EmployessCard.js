@@ -1,10 +1,8 @@
 import React from "react";
 import styles from "./style.module.css";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import Logo from "../../images/icons/profileDefault.svg";
+import Test from "../../images/icons/test.svg";
 import EmailIcon from "@mui/icons-material/Email";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
@@ -25,7 +23,7 @@ function EmployessCard({ isDetail }) {
     <div className={!isDetail ? styles.container : styles.containerDetails}>
       {!isDetail && (
         <div className="mt-2 flex w-full gap-2 items-center justify-end relative">
-          <div class="mb-4 flex items-center absolute left-0 top-3">
+          <div class="mb-4 flex items-center absolute left-1 top-1">
             <input
               id="default-checkbox"
               type="checkbox"
@@ -34,37 +32,16 @@ function EmployessCard({ isDetail }) {
             />
           </div>
           <StatusPanelSmall text="ACTIVE" />
-          <div className="mr-2">
+          <div>
             <DropdownMenu/>
-            {/* <Button
-              id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-            >
-              <MoreVertIcon sx={{ color: "#969da6" }} />
-            </Button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-              <MenuItem onClick={handleClose}>Edit</MenuItem>
-              <MenuItem onClick={handleClose}>Delete</MenuItem>
-            </Menu> */}
           </div>
         </div>
       )}
       <div className="flex gap-4">
-        <div className="w-[27%]">
+        <div className="w-[25%]">
           <img
             className="w-[70px] rounded-full object-cover"
-            src={Logo}
+            src={Test}
             alt="dPhoto"
           ></img>
         </div>
@@ -86,7 +63,7 @@ function EmployessCard({ isDetail }) {
         </div>
       </div>
 
-      <div className="flex w-[95%] flex-col gap-2 rounded-2xl bg-[#f4f5f7] p-4">
+      <div className="flex w-full flex-col gap-2 rounded-2xl bg-[#f4f5f7] p-4">
         <div className="flex gap-4 items-center">
           <EmailIcon sx={{ color: "#cbcfd4", fontSize: "20px" }} />{" "}
           <a className="text-[#23272C] text-[10px]" href="mailto:{dataGelecek}">
@@ -100,7 +77,7 @@ function EmployessCard({ isDetail }) {
         </div>
       </div>
       {!isDetail && (
-        <div className="w-[95%]">
+        <div className="w-full">
           <Link to="/employees-details">
             <button className="h-[40px] w-full rounded-2xl bg-[#1e74ec] text-white">
               View

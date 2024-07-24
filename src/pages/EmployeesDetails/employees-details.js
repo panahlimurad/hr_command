@@ -11,7 +11,7 @@ function EmployeesDetails() {
 
     <div>
       <EmpPageHeader text="Oliwia Williams"/>
-      <div className="flex mt-4 px-5">
+      <div className="flex mt-4">
       <div className="w-[50%]">
       <div className="flex gap-3 w-[100%]">
       <EmployessCard isDetail={true}/>
