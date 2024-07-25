@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './scroll.module.css'
 
-const ScrollableContainer = ({ children, maxHeight }) => {
+const ScrollableContainer = ({ children, y }) => {
   return (
-    <div className={styles.container}>
+    <div className={y ? styles.containerY : styles.containerX}>
       {children}
     </div>
   );

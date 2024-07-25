@@ -10,12 +10,13 @@ import EmployeesDetails from "../../pages/EmployeesDetails/employees-details";
 import Login from "../../pages/Login/login";
 import Register from "../../pages/Register/register";
 import Vacancies from "../../pages/Vacancies/vacancies";
-import Departaments from "../../pages/Departaments/departaments";
 import AddModal from "../Components/AddModal/AddModal";
 import Profile from "../../pages/Profile/profile";
 import ForgotPassPage from "../../pages/ForgotPassword/forgot_password";
 import ResetPassPage from "../../pages/ResetPassword/reset_password";
 import Leaves from "../../pages/Leaves/leaves";
+import Departments from "../../pages/Departments/departments";
+import DepartmentsDetails from "../../pages/DepartmentsDetails/departments-details";
 
 function Layout() {
   const location = useLocation();
@@ -42,7 +43,8 @@ function Layout() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/vacancies" element={<Vacancies />} />
-            <Route path="/departaments" element={<Departaments />} />
+            <Route path="/departaments" element={<Departments />} />
+            <Route path="/departments-details" element={<DepartmentsDetails />} />
             <Route path="/forgot_password" element={<ForgotPassPage />} />
             <Route path="/reset_password" element={<ResetPassPage />} />
             <Route path="/profile" element={<Profile />} />

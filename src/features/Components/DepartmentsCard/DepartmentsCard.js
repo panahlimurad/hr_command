@@ -2,10 +2,11 @@ import React from 'react'
 import LongCards from '../LongCards/LongCards'
 import ScrollableContainer from '../ScroolBarContainer/ScroolBarContainer'
 
-function LongCardsContainer() {
+function DepartmentsCard() {
   return (
     <div>
-        <ScrollableContainer>
+      <ScrollableContainer y>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-8 w-full'>
         <LongCards/>
         <LongCards/>
         <LongCards/>
@@ -19,10 +20,10 @@ function LongCardsContainer() {
         <LongCards/>
         <LongCards/>
         <LongCards/>
-        <LongCards/>
+        </div>
       </ScrollableContainer>
     </div>
   )
 }
 
-export default LongCardsContainer
+export default DepartmentsCard
