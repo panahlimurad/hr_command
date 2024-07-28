@@ -22,8 +22,8 @@ const ProfileContainer = () => {
         </div>
       ) : (
         <div className="flex h-full w-full items-center justify-center">
-          <CreateProfileComponent />
-          {/* <ProfileHR/> */}
+          {/* <CreateProfileComponent /> */}
+          <ProfileHR/>
         </div>
       )}
     </div>

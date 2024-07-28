@@ -11,7 +11,7 @@ function VacanciesContainer() {
         <div className="w-[70%]">
           <VacanciesTable />
         </div>
-        <div className="w-[26%]">
+        <div className="w-[30%]">
           <VacanciesFilter />
         </div>
       </div>

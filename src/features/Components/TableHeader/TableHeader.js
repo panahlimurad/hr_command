@@ -3,7 +3,7 @@ import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 const TableHeader = ({ data }) => {
   return (
-    <div className="flex h-[50px] w-[95%] items-center rounded-lg bg-[#f3f5f7]">
+    <div className="flex h-[50px] w-full items-center rounded-lg bg-[#f3f5f7]">
       <div className="flex w-full text-[14px] font-normal text-[#343942]">
         {data.map((item, index) => (
           <>

@@ -3,7 +3,7 @@ import styles from './style.module.css'
 
 function VacanciesFilter() {
   return (
-    <div className='mt-4 border border-solid border-[#f1f1f1] rounded-2xl h-[575px] p-4'>
+    <div className='mt-4 border border-solid border-borderDefault rounded-2xl h-[575px] p-4'>
         <div className='flex justify-between items-center'>
             <p className='text-[20px] font-medium'>Vacancies Filter</p>
             <p className={styles.clear}>CLEAR ALL</p>

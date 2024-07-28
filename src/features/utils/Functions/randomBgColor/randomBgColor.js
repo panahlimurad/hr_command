@@ -3,7 +3,6 @@ const colors = [
     '#f5daa4', 
     '#adffba', 
     '#aecefd',  
-    "#f5f5f5",
     "#5287d9",
   ];
 

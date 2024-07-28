@@ -5,11 +5,20 @@ import InfoCard from "../../features/Components/InfoCard/InfoCard";
 import SkillsComp from "../../features/Components/SkillsComp/SkillsComp";
 import ExperienceComp from "../../features/Components/ExperienceComp/ExperienceComp";
 import EducationComp from "../../features/Components/EducationComp/EducationComp";
+import { motion } from "framer-motion";
 
 function EmployeesDetails() {
   return(
 
-    <div>
+    <motion.div
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.5,
+      ease: [0, 0.71, 0.2, 1.01],
+    }}
+
+    >
       <EmpPageHeader text="Oliwia Williams"/>
       <div className="flex mt-4">
       <div className="w-[50%]">
@@ -29,7 +38,7 @@ function EmployeesDetails() {
       </div>
       </div>
       </div>
-    </div>
+    </motion.div>
   ) 
   
 }

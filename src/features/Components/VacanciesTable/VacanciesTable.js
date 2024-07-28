@@ -1,13 +1,8 @@
 import React from "react";
-import styles from "./vacanciesTable.module.css";
 import defaultVacanciesimg from '../../images/icons/defaultVacanciesImg.svg'
-import StatusPanelSmall from "../StatusPanelSmall/StatusPanelSmall";
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import ImportExportIcon from '@mui/icons-material/ImportExport';
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Button from "@mui/material/Button";
+import TableHeader from "../TableHeader/TableHeader";
+import TableEmployees from "../TableEmployees/TableEmployees";
+
 
 function VacanciesTable() {
 
@@ -19,50 +14,56 @@ function VacanciesTable() {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const data = [
+      { label: "Position Title", showIcon: true },
+      { label: "Applicants", showIcon: false },
+      { label: "Status", showIcon: false },
+      { label: "Publication", showIcon: false },
+    ];
+
+    const dataVacancies = [
+      { 
+        img: { src: defaultVacanciesimg, alt: "profile" },
+        positionTitle: "IOS Developer",
+        applicants: 34,
+        status: "Active",
+        publication: "Aug, 2022 - Aug, 2023",
+      },
+      { 
+        img: { src: defaultVacanciesimg, alt: "profile" },
+        positionTitle: "IOS Developer",
+        applicants: 34,
+        status: "Active",
+        publication: "Aug, 2022 - Aug, 2023",
+      },
+      { 
+        img: { src: defaultVacanciesimg, alt: "profile" },
+        positionTitle: "IOS Developer",
+        applicants: 34,
+        status: "Active",
+        publication: "Aug, 2022 - Aug, 2023",
+      },
+      { 
+        img: { src: defaultVacanciesimg, alt: "profile" },
+        positionTitle: "IOS Developer",
+        applicants: 34,
+        status: "Active",
+        publication: "Aug, 2022 - Aug, 2023",
+      },
+      { 
+        img: { src: defaultVacanciesimg, alt: "profile" },
+        positionTitle: "IOS Developer",
+        applicants: 34,
+        status: "Active",
+        publication: "Aug, 2022 - Aug, 2023",
+      },
+    ]
   
   return (
-    <div className="ml-8 mt-4">
-      <div>
-        <ul className={`${styles.customUl}`}>
-          <li>Position Title <ImportExportIcon sx={{fontSize:"15px", cursor:"pointer"}}/></li> 
-          <li>Status</li>
-          <li>Publication</li>
-        </ul>
-      </div>
-      <div className="rounded-2xl w-full">
-        <table className="w-full border border-solid border-[#f1f1f1] mt-4">
-          <tbody className="flex flex-col justify-center items-center max-h-[500px] overflow-scroll">
-            <tr className="flex h-[40px] w-[96%] items-center py-7 border-b">
-              <td className="flex items-center gap-2 flex-1"><img src={defaultVacanciesimg} alt="vacancies"/>Javascript Developer</td>
-              <td className="flex-1"><StatusPanelSmall text="OPEN"/></td>
-              <td className="flex-1"><CalendarMonthIcon sx={{color:"#9e9e9e", fontSize:"15px"}}/> <span className='text-[13px] font-semibold'>Aug, 2023</span></td>
-              <div>
-            <Button
-              id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-            >
-              <MoreVertIcon sx={{ color: "#969da6" }} />
-            </Button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-            >
-              <MenuItem onClick={handleClose}>Edit</MenuItem>
-              <MenuItem onClick={handleClose}>Delete</MenuItem>
-            </Menu>
-          </div>           
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div className="flex flex-col gap-4">
+      <TableHeader data={data}/>
+      <TableEmployees dataVacancies={dataVacancies}/>
     </div>
   );
 }

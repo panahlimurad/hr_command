@@ -5,9 +5,10 @@
     background-color: #f4f5f7;
     border-radius: 12px;
     height: 56px;
+    gap: 8px;
     align-items: center;
     justify-content: space-around;
-    padding-left: 20px;
+    padding: 0px 40px;
 }
 
 .customUl li{

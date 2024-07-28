@@ -2,6 +2,8 @@ import React from "react";
 import PageHeader from "../../features/Components/PageHeader/PageHeader";
 import DepartmentsCard from "../../features/Components/DepartmentsCard/DepartmentsCard";
 
+
+
 function Departments() {
   return (
     <div className="w-full">

@@ -3,7 +3,7 @@ import VacanciesContainer from '../../features/Components/VacanciesContainer/Vac
 
 function Vacancies() {
   return (
-    <div>
+    <div className='w-full'>
       <VacanciesContainer/>
     </div>
   )
